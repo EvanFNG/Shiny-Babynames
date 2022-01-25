@@ -1,5 +1,5 @@
-library(tidyverse)
-library(fs)
+# If the file doesn't already exist in the project directory,
+# download from the SSA, manipulate, then write to .csv
 
 if(!file.exists('bbynames.csv')){
 

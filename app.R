@@ -1,5 +1,10 @@
+# Required packages. Install if they are not installed.
+packages_used <- c('tidyverse', 'shiny', 'fs')
+invisible(lapply(packages_used, function(x) if(!x %in% installed.packages()) install.packages(x)))
+
 library(shiny)
 library(tidyverse)
+library(fs)
 source('file_creation.R')
 
 bbynames <- read_csv('bbynames.csv')
@@ -14,7 +19,8 @@ ui <- fluidPage(
   selectInput(
     'sex',
     'Select Gender:',
-    choices = list('M', 'F')),
+    choices = list('M', 'F'),
+    selected = 'F'),
   plotOutput('plt')
 
 )
